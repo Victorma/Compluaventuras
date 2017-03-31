@@ -1,0 +1,1799 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE eAdventure PUBLIC "SYSTEM" "eadventure.dtd">
+<eAdventure>
+  <scene id="inicial" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <resources name="">
+      <asset type="background" uri="assets/background/inicial.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="300" />
+    <exits>
+      <exit rectangular="yes" x="235" y="253" width="300" height="120" hasInfluenceArea="no" idTarget="mapSceneInicial" destinyY="-2147483648" destinyX="-2147483648" transitionType="5" transitionTime="1" not-effects="no">
+        <exit-look text="" />
+        <post-effect>
+          <trigger-conversation idTarget="introduccion" />
+          <condition />
+        </post-effect>
+      </exit>
+    </exits>
+  </scene>
+  <scene id="paraninfoScene" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <resources name="No name">
+      <asset type="background" uri="assets/background/paraninfo.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="300" />
+    <characters>
+      <character-ref idTarget="entrenador" x="400" y="600" scale="1" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="piscinaAlmudenaScene" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <resources name="No name">
+      <asset type="background" uri="assets/background/piscinalmudena.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="300" />
+    <characters>
+      <character-ref idTarget="ayudanteDePiscina" x="400" y="600" scale="1" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="polisurScene" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <resources name="No name">
+      <asset type="background" uri="assets/background/polisur.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="300" />
+    <characters>
+      <character-ref idTarget="entrenador" x="400" y="600" scale="0.8" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="pisciSurScene" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <resources name="No name">
+      <asset type="background" uri="assets/background/piscinaverano.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="300" />
+    <characters>
+      <character-ref idTarget="ayudanteDePiscina" x="400" y="600" scale="0.8" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="registroScene" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <resources name="No name">
+      <asset type="background" uri="assets/background/registro.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="300" />
+    <characters>
+      <character-ref idTarget="secretaria" x="494" y="788" scale="1.6" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="final" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <resources name="">
+      <asset type="background" uri="assets/background/final.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="300" />
+    <exits>
+      <exit rectangular="yes" x="336" y="383" width="300" height="120" hasInfluenceArea="no" idTarget="mapSceneInicial" destinyY="-2147483648" destinyX="-2147483648" transitionType="5" transitionTime="1" not-effects="no">
+        <exit-look text="" />
+        <post-effect>
+          <trigger-conversation idTarget="introduccion" />
+          <condition />
+        </post-effect>
+      </exit>
+    </exits>
+  </scene>
+  <object id="pelotaRugby" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/pelota_rugby.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>Pelota de Rugby</name>
+      <brief>Es una pelota de rugby</brief>
+      <detailed>Es una pelota de rugby que sirve para jugar al rugby</detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <increment var="Pelotas" value="1" />
+          <condition />
+          <trigger-conversation idTarget="pickball" />
+          <condition />
+          <activate flag="rugbyPicked" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="pelotaFutbol" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/pelota_futbol.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>Pelota de Fútbol</name>
+      <brief>Es una pelota de fútbol</brief>
+      <detailed>Es una pelota de fútbol que sirve para jugar al fútbol</detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <increment var="Pelotas" value="1" />
+          <condition />
+          <trigger-conversation idTarget="pickball" />
+          <condition />
+          <activate flag="futbolPicked" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="pelotaTenis" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/pelota_tenis.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>Pelota de Tenis</name>
+      <brief>Es una pelota de tenis</brief>
+      <detailed>Es una pelota de tenis que sirve para jugar al tenis</detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <increment var="Pelotas" value="1" />
+          <condition />
+          <trigger-conversation idTarget="pickball" />
+          <condition />
+          <activate flag="tenisPicked" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="pelotaBasket" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="">
+      <asset type="image" uri="assets/image/pelota_basket.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>Pelota de Básket</name>
+      <brief>Es una pelota de básket</brief>
+      <detailed>Es una pelota de básket que sirve para jugar al baloncesto</detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <increment var="Pelotas" value="1" />
+          <condition />
+          <trigger-conversation idTarget="pickball" />
+          <condition />
+          <activate flag="basketPicked" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <player>
+    <resources name="">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#00000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </player>
+  <character id="entrenador">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="standdown" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="standright" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="standleft" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="speakup" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="speakdown" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="speakright" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="speakleft" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="useright" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="useleft" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="walkup" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="walkdown" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="walkright" uri="assets/animation/standardTrainer.eaa" />
+      <asset type="walkleft" uri="assets/animation/standardTrainer.eaa" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="buscandoPelotas" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="buscaPelotas" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="buscandoPelotas" />
+          <less-equals-than var="Pelotas" value="3" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="pickball" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="buscandoPelotas" />
+          <equals var="Pelotas" value="4" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="todasLasPelotas" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="ayudanteDePiscina">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="standdown" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="standright" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="standleft" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="speakup" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="speakdown" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="speakright" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="speakleft" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="useright" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="useleft" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="walkup" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="walkdown" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="walkright" uri="assets/animation/chicaPiscina.eaa" />
+      <asset type="walkleft" uri="assets/animation/chicaPiscina.eaa" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="ayudanteDePiscina" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="secretaria">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/secretaria.eaa" />
+      <asset type="standdown" uri="assets/animation/secretaria.eaa" />
+      <asset type="standright" uri="assets/animation/secretaria.eaa" />
+      <asset type="standleft" uri="assets/animation/secretaria.eaa" />
+      <asset type="speakup" uri="assets/animation/secretaria.eaa" />
+      <asset type="speakdown" uri="assets/animation/secretaria.eaa" />
+      <asset type="speakright" uri="assets/animation/secretaria.eaa" />
+      <asset type="speakleft" uri="assets/animation/secretaria.eaa" />
+      <asset type="useright" uri="assets/animation/secretaria.eaa" />
+      <asset type="useleft" uri="assets/animation/secretaria.eaa" />
+      <asset type="walkup" uri="assets/animation/secretaria.eaa" />
+      <asset type="walkdown" uri="assets/animation/secretaria.eaa" />
+      <asset type="walkright" uri="assets/animation/secretaria.eaa" />
+      <asset type="walkleft" uri="assets/animation/secretaria.eaa" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="secretariaDeRegistro" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <character id="ayudante">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/ayudante.eaa" />
+      <asset type="standdown" uri="assets/animation/ayudante.eaa" />
+      <asset type="standright" uri="assets/animation/ayudante.eaa" />
+      <asset type="standleft" uri="assets/animation/ayudante.eaa" />
+      <asset type="speakup" uri="assets/animation/ayudante.eaa" />
+      <asset type="speakdown" uri="assets/animation/ayudante.eaa" />
+      <asset type="speakright" uri="assets/animation/ayudante.eaa" />
+      <asset type="speakleft" uri="assets/animation/ayudante.eaa" />
+      <asset type="useright" uri="assets/animation/ayudante.eaa" />
+      <asset type="useleft" uri="assets/animation/ayudante.eaa" />
+      <asset type="walkup" uri="assets/animation/ayudante.eaa" />
+      <asset type="walkdown" uri="assets/animation/ayudante.eaa" />
+      <asset type="walkright" uri="assets/animation/ayudante.eaa" />
+      <asset type="walkleft" uri="assets/animation/ayudante.eaa" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="conversacionesAyudante" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
+  </character>
+  <graph-conversation id="introduccion">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="ayudante">Bienvenido a la Complutense.</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">Hoy te voy a enseñar los diferentes lugares donde puedes apuntarte a actividades deportivas</speak-char>
+      <condition />
+      <speak-player>¡Genial!</speak-player>
+      <condition />
+      <speak-char idTarget="ayudante">Además, te enseñaré a hacer trámites burocráticos por si lo necesitaras...</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">¡Nunca se sabe! Jejeje</speak-char>
+      <condition />
+      <speak-player>¡Estupendo!</speak-player>
+      <condition />
+      <speak-char idTarget="ayudante">Para empezar... ¿Sabes dónde está el edificio de estudiantes?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" x="10" y="480">
+      <speak-player>Sí</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>No</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2">
+      <speak-char idTarget="ayudante">¡Bien! Ahora, por qué no miras hacia él para demostrármelo...</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="buscandoEdificioEstudiantes" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3">
+      <speak-char idTarget="ayudante">Es sencillo, desde el metro de Ciudad Universitaria debes mirar hacia el Oeste</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">Es decir, hacia el otro lado de la calle</speak-char>
+      <condition />
+      <child nodeindex="2" />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="pickball">
+    <dialogue-node nodeindex="0">
+      <speak-player>Veamos cómo llevas la recojida...</speak-player>
+      <condition />
+      <speak-player>Necesitas las 4 pelotas aún...</speak-player>
+      <condition>
+        <equals var="Pelotas" value="0" />
+      </condition>
+      <speak-player>Aún te faltan 3 pelotas más</speak-player>
+      <condition>
+        <equals var="Pelotas" value="1" />
+      </condition>
+      <speak-player>¡Ya sólo te quedan 2 pelotas!</speak-player>
+      <condition>
+        <equals var="Pelotas" value="2" />
+      </condition>
+      <speak-player>¡Una pelota más!</speak-player>
+      <condition>
+        <equals var="Pelotas" value="3" />
+      </condition>
+      <speak-player>¡Tienes todas las pelotas!¡Genial!</speak-player>
+      <condition>
+        <equals var="Pelotas" value="4" />
+      </condition>
+      <speak-player>Regresa al centro para llevárselas al entrenador.</speak-player>
+      <condition>
+        <equals var="Pelotas" value="4" />
+      </condition>
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="bromaMedicina">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="ayudante">Veo que estás mirando hacia medicina...</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">¡No es el momento de irse de juega a la cafetería!</speak-char>
+      <condition />
+      <speak-player>Pero... Si...</speak-player>
+      <condition />
+      <speak-char idTarget="ayudante">Déjate de escusas, mira justo en la otra dirección</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="bromaHecha" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="edificioEstudiantes">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="ayudante">¡Estupendo!¡Veo que lo vas pillando!</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">Ahora... Vamos a empezar con la actividad...</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">¿A qué polideportivo te gustaría ir?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+      <effect>
+        <deactivate flag="buscandoEdificioEstudiantes" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <option-node nodeindex="1" x="10" y="480">
+      <speak-player>Al más cercano</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Paraninfo</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Polideportivo Sur</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </option-node>
+    <dialogue-node nodeindex="2">
+      <speak-char idTarget="ayudante">Estupendo, al más cercano...</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">La flecha te indica la dirección hacia donde está</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Closeness">
+            <step locks="False">paraninfo</step>
+            <step locks="False">polideportivoSur</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3">
+      <speak-char idTarget="ayudante">Vale, pues vamos al paraninfo!</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">La flecha te indica la dirección hacia donde está</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">paraninfo</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="4">
+      <speak-char idTarget="ayudante">Vale, te indico cómo ir al polideportivo sur</speak-char>
+      <condition />
+      <speak-player>La flecha te indica la dirección hacia donde está</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">polideportivoSur</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="llegadaParaninfo">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="ayudante">¡Has llegado al paraninfo!¡Genial!</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">Ahora ve al pabellón central, el entrenador te dirá qué hacer...</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">pabellonParaninfo</step>
+          </navigate>
+          <condition />
+          <activate flag="paraninfo" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="llegadaPolisur">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="ayudante">¡Has llegado al polideportivo sur!¡Genial!</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">Ahora ve al pabellón central, el entrenador te dirá qué hacer...</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">pabellonsur</step>
+          </navigate>
+          <condition />
+          <activate flag="polisur" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="buscaPelotas">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="entrenador">¡Hola!</speak-char>
+      <condition />
+      <speak-player>Hola, estoy pensando en apuntarme a algo!</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">Oh, ¡Estupendo!</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Qué te parecería echarme una mano con una tarea y así irte familiarizando con el campo...</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Mientras tanto, puedo buscar toda la información que vayas a necesitar.</speak-char>
+      <condition />
+      <speak-player>Vale, ¿de que se trata?</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">Es una tarea sencilla, date una vuelta por el campo y busca pelotas de varios deportes.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Hay cuatro pelotas, Fútbol, Rugby, Tenis y Básket.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Es posible que estén en sus respectivos campos, acércate y prueba suerte.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Si no aparecen, da una vuelta a cada campo... ¡pueden estar en cualquier punto!</speak-char>
+      <condition />
+      <speak-player>Perfecto!</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">Nos vemos!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="polifin" />
+          <condition />
+          <activate flag="buscandoPelotas" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="todasLasPelotas">
+    <dialogue-node nodeindex="0">
+      <speak-player>Ya traigo todas las pelotas</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">Genial! Como puedes ver, aquí se practican todo tipo de deportes.</speak-char>
+      <condition />
+      <speak-player>Sí, ya he visto los campos, jeje</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">Para entrenar, sólo tienes que ser miembro de la UCM.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Tienes varias formas de entrar, puede comprar bonos o pagar el carné anual.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Y... la verdad, el carné anual puede ser interesante si te gustaría ir a la piscina y al gimnasio.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Sólo cuesta 250€ al año, puedes encontrar más información en la página web.</speak-char>
+      <condition />
+      <speak-player>Genial, lo miraré en cuanto llegue a casa!</speak-player>
+      <condition />
+      <speak-player>¿Dónde está la piscina?</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-conversation idTarget="veAlmudena" />
+          <condition>
+            <active flag="paraninfo" />
+          </condition>
+          <trigger-conversation idTarget="vePiscinaSur" />
+          <condition>
+            <active flag="polisur" />
+          </condition>
+          <deactivate flag="buscandoPelotas" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="veAlmudena">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="entrenador">Como en este polideportivo no hay piscina, me gustaría que te acercaras a la piscina más cercana.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">La piscina está en el Polideportivo de la Almudena, pero tranquilo, te indicaré como ir.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Detrás de la facultad de físicas, subiendo por la calle lo encontrarás fácilmente.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Aún así, la navegación te indicará cómo ir, no te preocupes.</speak-char>
+      <condition />
+      <speak-player>Genial!</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">Por cierto, esta piscina es de invierno.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">La piscina de verano, al descubierto, está en el Polideportivo Sur.</speak-char>
+      <condition />
+      <speak-player>Gracias por la información</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">No hay de qué, vuelve cuando quieras!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="navegandoPiscina" />
+          <condition />
+          <navigate navigation-type="Ordered">
+            <step locks="False">piscinaNorte</step>
+            <step locks="False">EntradaPiscinaNorte</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="vePiscinaSur">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="entrenador">En el polideportivo sur tenemos la piscina descubierta.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Está justo aquí al aldo, pero tranquilo, te indicaré cómo ir.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Primero, ves hacia la salida y después tuerce a la izquierda y te encontrarás con ella.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">Aún así, la navegación te indicará cómo ir, no te preocupes.</speak-char>
+      <condition />
+      <speak-player>Genial!</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">Por cierto, esta piscina es de verano.</speak-char>
+      <condition />
+      <speak-char idTarget="entrenador">La piscina de invierno, cubierta, está en el Polideportivo de la Almudena, al norte.</speak-char>
+      <condition />
+      <speak-player>Gracias por la información</speak-player>
+      <condition />
+      <speak-char idTarget="entrenador">No hay de qué, vuelve cuando quieras!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="navegandoPiscina" />
+          <condition />
+          <navigate navigation-type="Ordered">
+            <step locks="False">SalidaPolideportivo</step>
+            <step locks="False">entradaPiscinaSur</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="ayudanteDePiscina">
+    <dialogue-node nodeindex="0">
+      <speak-player>Hola!</speak-player>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">¿En qué te puedo ayudar?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" x="10" y="480">
+      <speak-player>Quería información de la piscina</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Quiero apuntarme!</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2">
+      <speak-char idTarget="ayudanteDePiscina">Genial! Nuevas incorporaciones para este fantástico deporte!</speak-char>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Los precios de la piscina dependen del tipo que escojas.</speak-char>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Por ejemplo, una sesión son 4€ para los miembros de la complu y 5€ para los demás</speak-char>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Además, puedes sacar un bono de 10 baños por 25€ y 40€ respectivamente</speak-char>
+      <condition />
+      <speak-player>Genial!</speak-player>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Si quieres algo más no dudes en preguntarme.</speak-char>
+      <condition />
+      <speak-player>(Para continuar en el juego, apúntate a la piscina)</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="3">
+      <speak-char idTarget="ayudanteDePiscina">Estupendo!</speak-char>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Esto es un juego, así que sólo finjiremos que compras algo...</speak-char>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Busca el QR junto a las taquillas y escanéalo</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <qr-prompt selection-type="WhiteList">
+            <message>Escanea el QR junto a la taquilla de recepción</message>
+            <qr-id>taquillaPiscina</qr-id>
+          </qr-prompt>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="escaneadoQRPiscina">
+    <dialogue-node nodeindex="0">
+      <speak-player>Ya estoy en la taquilla!</speak-player>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Genial! Veo que has sido capaz de escanear el QR.</speak-char>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Aquí puedes comprar los tickets de la piscina.</speak-char>
+      <condition />
+      <speak-player>Genial! Pero... Me gustaría reservar además una de las pistas de tenis de antes...</speak-player>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">No te preocupes, es muy sencillo!</speak-char>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Sólo tienes que rellenar una instancia de reserva y llevarla al registro.</speak-char>
+      <condition />
+      <speak-player>Vale! Me das una?</speak-player>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Claro aquí tienes</speak-char>
+      <condition />
+      <speak-player>* Rellenando instancia *</speak-player>
+      <condition />
+      <speak-player>Estupendo, ahora... Cómo voy al registro?</speak-player>
+      <condition />
+      <speak-char idTarget="ayudanteDePiscina">Es muy fácil y hay muchos... Te acompaño fuera y el cisne te ayudará a encontrar uno :)</speak-char>
+      <condition />
+      <speak-player>Gracias!</speak-player>
+      <condition />
+      <child nodeindex="1" />
+      <effect>
+        <deactivate flag="navegandoPiscina" />
+        <condition />
+        <trigger-scene idTarget="mapSceneRegistros" x="300" y="300" />
+        <condition />
+        <wait-time time="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="1">
+      <speak-char idTarget="ayudante">Veo que quieres ir a un registro... </speak-char>
+      <condition />
+      <speak-player>Sí, me indicas cómo ir?</speak-player>
+      <condition />
+      <speak-char idTarget="ayudante">Claro!</speak-char>
+      <condition />
+      <speak-char idTarget="ayudante">A cuál te gustaría ir?</speak-char>
+      <condition />
+      <child nodeindex="2" />
+    </dialogue-node>
+    <option-node nodeindex="2" x="10" y="480">
+      <speak-player>Al más cercano</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Químicas</speak-player>
+      <condition />
+      <child nodeindex="4" />
+      <speak-player>Rectorado</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>Edificio de estudiantes</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Medicina</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Facultad Multiusos</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="caminandoRegistro" />
+        <condition />
+      </effect>
+    </option-node>
+    <dialogue-node nodeindex="3">
+      <speak-char idTarget="ayudante">Perfecto, te llevaré al más cercano.</speak-char>
+      <condition />
+      <speak-player>En este caso, será Químicas!</speak-player>
+      <condition>
+        <active flag="paraninfo" />
+      </condition>
+      <speak-player>En este caso, será el Rectorado!</speak-player>
+      <condition>
+        <active flag="polisur" />
+      </condition>
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Closeness">
+            <step locks="False">medicina</step>
+            <step locks="False">quimicas</step>
+            <step locks="False">rectorado</step>
+            <step locks="False">multiusos</step>
+            <step locks="False">estudiantes</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="4">
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">quimicas</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="5">
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">rectorado</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="6">
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">estudiantes</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="7">
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">estudiantes</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="8">
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">multiusos</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="secretariaDeRegistro">
+    <dialogue-node nodeindex="0">
+      <speak-player>Hola</speak-player>
+      <condition />
+      <speak-char idTarget="secretaria">Bienvenido al registro.</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">En qué puedo ayudarle?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" x="10" y="480">
+      <speak-player>Funcionamiento del registro</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Entregar un documento</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2">
+      <speak-char idTarget="secretaria">En el registro nos encargamos de enviar documentos.</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">Recibimos el documento y el organismo al que va destinado y se lo hacemos llegar lo antes posible.</speak-char>
+      <condition />
+      <speak-player>Vaya, y en qué se diferencia esto de una carta?</speak-player>
+      <condition />
+      <speak-char idTarget="secretaria">Es una buena pregunta!</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">Todo documento que pase por registro dejará una traza de su paso.</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">Siempre que se entregue en el plazo el registro asegurará que tu documento entra en la convocatoria.</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">Aunque estaremos encantados de ayudarte con tus documentos no somos especialistas.</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">Por lo que cuando vengas aquí asegúrate de tener todos los papeles necesarios contigo.</speak-char>
+      <condition />
+      <speak-player>Está bien saberlo</speak-player>
+      <condition />
+      <speak-char idTarget="secretaria">Ah, y ya que decías de correos...</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">Una carta certificada de correos también sirve como forma de envío siempre que no tengas un registro cerca.</speak-char>
+      <condition />
+      <speak-player>Genial!</speak-player>
+      <condition />
+      <speak-char idTarget="secretaria">Además, existen registros en muchos organismos municipales.</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">Aunque, personalmente, te recomiendo que, para temas de la Uni, lo traigas a un registro de la Uni.</speak-char>
+      <condition />
+      <speak-player>Gracias por la información!</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="3">
+      <speak-char idTarget="secretaria">Para entregar el documento, acércate al registro y escanea el código QR.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <qr-prompt selection-type="WhiteList">
+            <message>Escanea el QR junto al Registro</message>
+            <qr-id>taquillaRegistro</qr-id>
+          </qr-prompt>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="escaneadoQRRegistro">
+    <dialogue-node nodeindex="0">
+      <speak-player>Hola, traigo una instancia para reserva de pistas.</speak-player>
+      <condition />
+      <speak-char idTarget="secretaria">Perfecto. Traes toda la documentación necesaria?</speak-char>
+      <condition />
+      <speak-player>Sí</speak-player>
+      <condition />
+      <speak-char idTarget="secretaria">Genial, entonces, vamos a realizar la entrega...</speak-char>
+      <condition />
+      <speak-char idTarget="secretaria">Voy a pasarlo por la registradora...</speak-char>
+      <condition />
+      <speak-player>...</speak-player>
+      <condition />
+      <speak-char idTarget="secretaria">Listo! Aquí tienes tu justificante de entrega!</speak-char>
+      <condition />
+      <speak-player>Estupendo! Qué sencillo!</speak-player>
+      <condition />
+      <speak-char idTarget="secretaria">Hasta luego!</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-scene idTarget="final" x="300" y="300" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="conversacionesAyudante">
+    <dialogue-node nodeindex="0">
+      <speak-char idTarget="ayudante">Recuerda, mira hacia el edificio de estudiantes.</speak-char>
+      <condition>
+        <active flag="buscandoEdificioEstudiantes" />
+      </condition>
+      <speak-char idTarget="ayudante">Camina hasta el polideportivo.</speak-char>
+      <condition>
+        <inactive flag="buscandoEdificioEstudiantes" />
+        <inactive flag="paraninfo" />
+        <inactive flag="polisur" />
+      </condition>
+      <speak-char idTarget="ayudante">Busca el pabellón.</speak-char>
+      <condition>
+        <either>
+          <active flag="paraninfo" />
+          <active flag="polisur" />
+        </either>
+      </condition>
+      <speak-char idTarget="ayudante">Tienes que encontrar todas las pelotas.</speak-char>
+      <condition>
+        <active flag="buscandoPelotas" />
+        <less-equals-than var="Pelotas" value="3" />
+      </condition>
+      <speak-char idTarget="ayudante">Ve al pabellón a entregar las pelotas.</speak-char>
+      <condition>
+        <active flag="buscandoPelotas" />
+        <equals var="Pelotas" value="4" />
+      </condition>
+      <speak-char idTarget="ayudante">Sigue las indicaciones hasta la piscina.</speak-char>
+      <condition>
+        <active flag="navegandoPiscina" />
+      </condition>
+      <speak-char idTarget="ayudante">Camina hasta un registro!</speak-char>
+      <condition>
+        <active flag="caminandoRegistro" />
+      </condition>
+      <end-conversation>
+        <effect>
+          <trigger-conversation idTarget="pickball" />
+          <condition>
+            <active flag="buscandoPelotas" />
+          </condition>
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <completable id="estudiantes" type="completable">
+    <start-milestone type="CONDITION">
+      <condition>
+        <active flag="buscandoEdificioEstudiantes" />
+      </condition>
+    </start-milestone>
+    <end-milestone type="CONDITION">
+      <condition>
+        <inactive flag="buscandoEdificioEstudiantes" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM" />
+    <score type="VARIABLE" method="SINGLE" id="Pelotas" />
+  </completable>
+  <completable id="llegadapabellon" type="completable">
+    <start-milestone type="CONDITION">
+      <condition>
+        <either>
+          <active flag="paraninfo" />
+          <active flag="polisur" />
+        </either>
+        <inactive flag="polifin" />
+      </condition>
+    </start-milestone>
+    <end-milestone type="CONDITION">
+      <condition>
+        <active flag="buscandoPelotas" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM" />
+    <score type="VARIABLE" method="SINGLE" id="Pelotas" />
+  </completable>
+  <completable id="busquedapelotas" type="completable">
+    <start-milestone type="CONDITION">
+      <condition>
+        <active flag="buscandoPelotas" />
+      </condition>
+    </start-milestone>
+    <end-milestone type="CONDITION">
+      <condition>
+        <inactive flag="buscandoPelotas" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM" />
+    <score type="VARIABLE" method="SINGLE" id="Pelotas" />
+  </completable>
+  <completable id="llegadapiscina" type="completable">
+    <start-milestone type="CONDITION">
+      <condition>
+        <active flag="navegandoPiscina" />
+      </condition>
+    </start-milestone>
+    <end-milestone type="CONDITION">
+      <condition>
+        <inactive flag="navegandoPiscina" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM" />
+    <score type="VARIABLE" method="SINGLE" id="Pelotas" />
+  </completable>
+  <completable id="llegadaregistro" type="completable">
+    <start-milestone type="CONDITION">
+      <condition>
+        <active flag="caminandoRegistro" />
+      </condition>
+    </start-milestone>
+    <end-milestone type="CONDITION">
+      <condition>
+        <inactive flag="caminandoRegistro" />
+      </condition>
+    </end-milestone>
+    <progress type="SUM" />
+    <score type="VARIABLE" method="SINGLE" id="Pelotas" />
+  </completable>
+  <map-scene id="mapSceneParaninfo" cameraType="Aerial2D" center="(40.4505996704102, -3.72822022438049)" start="no">
+    <map-element targetId="pelotaRugby" layer="0">
+      <condition>
+        <inactive flag="rugbyPicked" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeoPositionedTransformManagerDescriptor">
+        <param name="Position">(40.4498023986816, -3.72866535186768)</param>
+        <param name="Scale">(0.2, 0.2, 1.0)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">50</param>
+        <param name="RevealOnlyOnRange">True</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="pelotaFutbol" layer="0">
+      <condition>
+        <active flag="buscandoPelotas" />
+        <inactive flag="futbolPicked" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeoPositionedTransformManagerDescriptor">
+        <param name="Position">(40.4515116852737, -3.72823427919504)</param>
+        <param name="Scale">(0.1, 0.1, 1.0)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">50</param>
+        <param name="RevealOnlyOnRange">True</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="pelotaTenis" layer="0">
+      <condition>
+        <active flag="buscandoPelotas" />
+        <inactive flag="tenisPicked" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeoPositionedTransformManagerDescriptor">
+        <param name="Position">(40.4511032104492, -3.72878956794739)</param>
+        <param name="Scale">(0.1, 0.1, 1.0)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">40</param>
+        <param name="RevealOnlyOnRange">True</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="pelotaBasket" layer="0">
+      <condition>
+        <active flag="buscandoPelotas" />
+        <inactive flag="basketPicked" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeoPositionedTransformManagerDescriptor">
+        <param name="Position">(40.4504421711801, -3.72807871107216)</param>
+        <param name="Scale">(0.1, 0.1, 1.0)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">35</param>
+        <param name="RevealOnlyOnRange">True</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="pabellonParaninfo" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="piscinaNorte" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="EntradaPiscinaNorte" layer="0">
+      <condition>
+        <active flag="navegandoPiscina" />
+      </condition>
+    </map-element>
+    <map-element targetId="carrilbici" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="carrilbici2" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="ayudante" layer="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenPositionedTransformManagerDescriptor">
+        <param name="Position">(93.732970027248, -176.185822647183)</param>
+        <param name="Scale">(0.8, 0.8, 1.0)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+  </map-scene>
+  <map-scene id="mapSceneInicial" cameraType="Aerial2D" center="(40.4438247680664, -3.72693634033203)" start="no">
+    <map-element targetId="carrilbici" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="carrilbici2" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="paraninfo" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="polideportivoSur" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="ayudante" layer="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenPositionedTransformManagerDescriptor">
+        <param name="Position">(93.0063578564941, -176.919318979702)</param>
+        <param name="Scale">(0.8, 0.8, 1.0)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="estudiantes" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="medicina" layer="0">
+      <condition />
+    </map-element>
+  </map-scene>
+  <map-scene id="mapScenePolideportivoSur" cameraType="Aerial2D" center="(40.4365921020508, -3.73097777366638)" start="yes">
+    <map-element targetId="carrilbici" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="carrilbici2" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="pabellonsur" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="pelotaRugby" layer="0">
+      <condition>
+        <active flag="buscandoPelotas" />
+        <inactive flag="rugbyPicked" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeoPositionedTransformManagerDescriptor">
+        <param name="Position">(40.4379865216402, -3.72896212326303)</param>
+        <param name="Scale">(0.2, 0.2, 1.0)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">50</param>
+        <param name="RevealOnlyOnRange">True</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="pelotaFutbol" layer="0">
+      <condition>
+        <active flag="buscandoPelotas" />
+        <inactive flag="futbolPicked" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeoPositionedTransformManagerDescriptor">
+        <param name="Position">(40.4377597557013, -3.72992813560994)</param>
+        <param name="Scale">(0.1, 0.1, 1.0)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">50</param>
+        <param name="RevealOnlyOnRange">True</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="pelotaTenis" layer="0">
+      <condition>
+        <active flag="buscandoPelotas" />
+        <inactive flag="tenisPicked" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeoPositionedTransformManagerDescriptor">
+        <param name="Position">(40.4378967285156, -3.7309045791626)</param>
+        <param name="Scale">(0.1, 0.1, 1.0)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">40</param>
+        <param name="RevealOnlyOnRange">True</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="pelotaBasket" layer="0">
+      <condition>
+        <active flag="buscandoPelotas" />
+        <inactive flag="basketPicked" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeoPositionedTransformManagerDescriptor">
+        <param name="Position">(40.4385261535645, -3.72971868515015)</param>
+        <param name="Scale">(0.1, 0.1, 1.0)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">50</param>
+        <param name="RevealOnlyOnRange">True</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="piscinaSur" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="entradaPiscinaSur" layer="0">
+      <condition>
+        <active flag="navegandoPiscina" />
+      </condition>
+    </map-element>
+    <map-element targetId="ayudante" layer="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenPositionedTransformManagerDescriptor">
+        <param name="Position">(95.1861943687557, -175.452326314665)</param>
+        <param name="Scale">(0.8, 0.8, 1.0)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="SalidaPolideportivo" layer="0">
+      <condition>
+        <active flag="navegandoPiscina" />
+      </condition>
+    </map-element>
+  </map-scene>
+  <map-scene id="mapSceneRegistros" cameraType="Aerial2D" center="(40.443904876709, -3.7268693447113)" start="no">
+    <map-element targetId="medicina" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="quimicas" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="rectorado" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="multiusos" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="estudiantes" layer="0">
+      <condition />
+    </map-element>
+    <map-element targetId="ayudante" layer="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenPositionedTransformManagerDescriptor">
+        <param name="Position">(91.5531335149864, -176.919318979702)</param>
+        <param name="Scale">(0.8, 0.8, 1.0)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+  </map-scene>
+  <geoelement id="paraninfo">
+    <name>Polideportivo Paraninfo</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="5">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.44921085318 -3.72885833660984 40.4493394430545 -3.72751723210272 40.4507504866992 -3.72774964590668 40.4520907991893 -3.72801612297932 40.4526888164419 -3.72824679295457 40.4527833560011 -3.72886544485656 40.4525888071017 -3.72942160050337 40.4519200063702 -3.72938311119685 40.4513213288863 -3.72927139712578 40.450601488839 -3.72913903017645</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="mapSceneParaninfo" x="300" y="300" />
+          <condition />
+          <trigger-conversation idTarget="llegadaParaninfo" />
+          <condition />
+        </effect>
+        <only-from-outside>False</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="carrilbici">
+    <name>
+    </name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="10">
+      <LineString>
+        <posList>40.436816835088 -3.72112837141699 40.4402423637506 -3.72629966974291 40.448109395116 -3.72774538040173 40.4487217356821 -3.72882094621718 40.450860801609 -3.72925009965948 40.4524201540893 -3.7295558714869 40.4530799697836 -3.7288445497875 40.45401882026 -3.7288445497875 40.4567291671655 -3.72932734741056 40.457210813759 -3.72918787254159 40.4573904099103 -3.72859778655827 40.4574638809241 -3.72746589435381 40.4579496039423 -3.72599067939562 40.4584887113827 -3.723554160988</posList>
+      </LineString>
+    </geometry>
+    <actions />
+  </geoelement>
+  <geoelement id="carrilbici2">
+    <name>
+    </name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="10">
+      <LineString>
+        <posList>40.4530631197303 -3.72888125793902 40.452603894496 -3.72802026884514 40.4506526625052 -3.7276876749274 40.4487095383638 -3.72731216566524 40.4481074034089 -3.7277225436442 40.4483788750903 -3.72508056776481 40.4468275935713 -3.72471578733877 40.4461595516717 -3.72485848072687 40.4458452055608 -3.72737975720087</posList>
+      </LineString>
+    </geometry>
+    <actions />
+  </geoelement>
+  <geoelement id="pabellonsur">
+    <name>Pabellón</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="15">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4383881567391 -3.73143275369367 40.4385453474147 -3.73081852782953 40.438333037844 -3.73072733272317 40.4381942196851 -3.73134424079642</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="polisurScene" x="300" y="300" zoneId="pabellonsur" />
+          <condition />
+        </effect>
+        <only-from-outside>False</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="polideportivoSur">
+    <name>Polideportivo Sur</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="5">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4380648733795 -3.73216365499533 40.4383152363159 -3.73183106042261 40.4384568305503 -3.73147700948752 40.4395918603008 -3.72699235601464 40.4393958853097 -3.72649882955591 40.4390202649799 -3.72652028722799 40.4380812049739 -3.72619842214622 40.4377300748199 -3.72635935468711 40.4364561918898 -3.73147700948752</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="mapScenePolideportivoSur" x="300" y="300" />
+          <condition />
+          <trigger-conversation idTarget="llegadaPolisur" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="pabellonParaninfo">
+    <name>Pabellón</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="15">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4508457531686 -3.72900162835338 40.4509600525105 -3.72795556683806 40.4508477942298 -3.72792874474787 40.4507355357615 -3.72897212405398</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="paraninfoScene" x="300" y="300" zoneId="pabellonParaninfo" />
+          <condition />
+        </effect>
+        <only-from-outside>False</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="piscinaNorte">
+    <name>Piscina</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="0">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4509838512488 -3.7190774548327 40.451359404728 -3.71853564861159 40.4515512627607 -3.71799384239068 40.451200202966 -3.71764515521875 40.4506287063541 -3.71883069160334</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions />
+  </geoelement>
+  <geoelement id="EntradaPiscinaNorte">
+    <name>Entrada</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="30">
+      <Point>
+        <pos>40.4511498706304 -3.71792410512013</pos>
+      </Point>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="piscinaAlmudenaScene" x="300" y="300" />
+          <condition />
+          <deactivate flag="navegandoPiscina" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="piscinaSur">
+    <name>Piscina</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="0">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4366547145974 -3.73080407182864 40.4364893535123 -3.73146121303719 40.4373876063626 -3.73181794683563 40.437526426187 -3.73123858968841</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions />
+  </geoelement>
+  <geoelement id="entradaPiscinaSur">
+    <name>Entrada</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="25">
+      <Point>
+        <pos>40.4366200092183 -3.73082016508209</pos>
+      </Point>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="pisciSurScene" x="300" y="300" />
+          <condition />
+          <deactivate flag="navegandoPiscina" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="SalidaPolideportivo">
+    <name>Salida</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="25">
+      <Point>
+        <pos>40.4369928665726 -3.72915719483802</pos>
+      </Point>
+    </geometry>
+    <actions />
+  </geoelement>
+  <geoelement id="medicina">
+    <name>Facultad de medicina</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="25">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4447437743795 -3.72535335965174 40.4448254241994 -3.72448432393099 40.444237543283 -3.72422683186558 40.4442946985977 -3.72346508450533 40.4438374547194 -3.72334706730875 40.4437149781522 -3.72415173001324 40.4431434178887 -3.72417318768526 40.4430209400571 -3.72511732525858 40.4436414921049 -3.72519242711092 40.4436904828121 -3.72483837552082 40.4441477276905 -3.72492420620923 40.4441069023812 -3.7252460712911</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <condition>
+          <active flag="caminandoRegistro" />
+        </condition>
+        <effect>
+          <trigger-scene idTarget="registroScene" x="300" y="300" />
+          <condition />
+          <deactivate flag="caminandoRegistro" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+      <lookto-action>
+        <condition>
+          <active flag="buscandoEdificioEstudiantes" />
+          <inactive flag="bromaHecha" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="bromaMedicina" />
+          <condition />
+        </effect>
+        <inside>False</inside>
+        <center>True</center>
+      </lookto-action>
+    </actions>
+  </geoelement>
+  <geoelement id="quimicas">
+    <name>Facultad de Químicas</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="25">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.450654964971 -3.72549283452057 40.4507447718681 -3.7246023411276 40.4508427428919 -3.72384059376741 40.4503773792571 -3.72376549191498 40.4502140930076 -3.72437703557035 40.4498140400194 -3.72438776440643 40.4496915743428 -3.72533190197965</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="registroScene" x="300" y="300" />
+          <condition />
+          <deactivate flag="caminandoRegistro" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="rectorado">
+    <name>Rectorado</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="25">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4369702573694 -3.72519242809338 40.4374357138334 -3.72534263179829 40.4374847090631 -3.72569668338815 40.4376806896253 -3.72564303920794 40.437648026238 -3.72533190296204 40.4380563174394 -3.7249993090443 40.4378766696163 -3.72476327465098 40.4375337042572 -3.72506368206066 40.4371417417047 -3.72487056301158</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="registroScene" x="300" y="300" />
+          <condition />
+          <deactivate flag="caminandoRegistro" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="multiusos">
+    <name>Facultad Multiusos</name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="25">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4501686176557 -3.73363226806063 40.4503033289314 -3.7325432910369 40.4498910299331 -3.73245209593038 40.4497604000197 -3.73356789504427</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="registroScene" x="300" y="300" />
+          <condition />
+          <deactivate flag="caminandoRegistro" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="estudiantes">
+    <name>
+    </name>
+    <description>
+    </description>
+    <brief-description>
+    </brief-description>
+    <detailed-description>
+    </detailed-description>
+    <geometry influence="25">
+      <Polygon>
+        <exterior>
+          <LinearRing>
+            <posList>40.4437596573058 -3.72868011898291 40.4439311243232 -3.72847090667974 40.443971949739 -3.72818122810614 40.4432085103588 -3.7280310244013 40.4431717670683 -3.72828851646671 40.4433064923685 -3.72861574596655</posList>
+          </LinearRing>
+        </exterior>
+      </Polygon>
+    </geometry>
+    <actions>
+      <enter-action>
+        <condition>
+          <active flag="caminandoRegistro" />
+        </condition>
+        <effect>
+          <trigger-scene idTarget="registroScene" x="300" y="300" />
+          <condition />
+          <deactivate flag="caminandoRegistro" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+      <lookto-action>
+        <condition>
+          <active flag="buscandoEdificioEstudiantes" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="edificioEstudiantes" />
+          <condition />
+        </effect>
+        <inside>False</inside>
+        <center>True</center>
+      </lookto-action>
+    </actions>
+  </geoelement>
+  <qr-code id="taquillaPiscina">
+    <content>Bono comprado</content>
+    <documentation>
+    </documentation>
+    <condition />
+    <effect>
+      <trigger-conversation idTarget="escaneadoQRPiscina" />
+      <condition />
+    </effect>
+  </qr-code>
+  <qr-code id="taquillaRegistro">
+    <content>Ventanilla encontrada</content>
+    <documentation>
+    </documentation>
+    <condition />
+    <effect>
+      <trigger-conversation idTarget="escaneadoQRRegistro" />
+      <condition />
+    </effect>
+  </qr-code>
+</eAdventure>
